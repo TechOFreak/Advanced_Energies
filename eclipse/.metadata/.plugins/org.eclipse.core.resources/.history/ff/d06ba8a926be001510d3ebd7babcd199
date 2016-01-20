@@ -1,0 +1,12 @@
+package com.techofreak.AdvancedEnergies.machines;
+
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+
+public class blockBasicConductionInfuser extends BlockContainer{
+
+	public blockBasicConductionInfuser(Boolean isActive) {
+		super(Material.rock);
+	}
+
+}

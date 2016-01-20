@@ -1,0 +1,9 @@
+package com.techofreak.AdvancedEnergies;
+
+public class CommonProxy {
+
+	public void registerProxies(){
+		
+	}
+	
+}

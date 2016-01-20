@@ -1,0 +1,13 @@
+package com.techofreak.AdvancedEnergies.machines;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class blockBasicConductionInfuserActive extends Block{
+
+	public blockBasicConductionInfuserActive(Material material) {
+		super(material);
+		this.setLightLevel(0.625F);
+	}
+
+}

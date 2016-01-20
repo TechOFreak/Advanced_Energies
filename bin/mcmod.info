@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ae",
+  "name": "Advanced Energies",
+  "description": "Ever wanted more ways to make power? Well this mod does just that, adding more ways to generate RF power.",
+  "version": "1.7.001",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TechOFreak"],
+  "credits": "Technology!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

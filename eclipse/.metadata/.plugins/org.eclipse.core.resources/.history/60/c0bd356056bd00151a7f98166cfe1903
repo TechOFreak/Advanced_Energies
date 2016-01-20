@@ -1,0 +1,6 @@
+package com.techofreak.AdvancedEnergies;
+
+
+public class dustCoal extends Item{
+
+}

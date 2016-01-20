@@ -1,0 +1,62 @@
+package com.techofreak.AdvancedEnergies;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
+
+import com.example.examplemod.ExampleMod;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+@Mod(modid = AdvancedEnergies.MODID, name = AdvancedEnergies.NAME,version = AdvancedEnergies.VERSION)
+public class AdvancedEnergies {
+
+	public static final String MODID = "ae";
+	public static final String NAME = "Advanced Energies";
+    public static final String VERSION = "1.7.001";
+	
+    public static Item itemEnergizedBlend;
+    public static Item dustCoal;
+    
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event)
+    {
+    	registerItems();
+    	oreRegistration();
+    	addRecipes();
+    }
+    
+    @EventHandler
+    public void init(FMLInitializationEvent event)
+    {
+
+    }
+    
+    @EventHandler
+    public void postInit(FMLPostInitializationEvent event)
+    {
+
+    }
+    
+    public static void registerItems(){
+    	itemEnergizedBlend = new ItemEnergizedBlend().setUnlocalizedName("ItemEnergizedBlend").setTextureName("ae:itemEnergizedBlend");
+    	GameRegistry.registerItem(itemEnergizedBlend, itemEnergizedBlend.getUnlocalizedName().substring(5));
+    	//itemEnergizedGold = new ItemEnergizedGold();
+    	dustCoal = new dustCoal().setUnlocalizedName("dustCoal").setTextureName("ae:dustCoal");
+    	GameRegistry.registerItem(dustCoal, dustCoal.getUnlocalizedName().substring(5));
+    }
+    
+    public static void oreRegistration(){
+    	OreDictionary.registerOre("dustCoal", dustCoal);
+    }
+    
+    public static void addRecipes(){
+    	
+    }
+    
+}
