@@ -1,0 +1,22 @@
+package com.techofreak.AdvancedEnergies.container;
+
+import com.techofreak.AdvancedEnergies.tileentity.TileEntityBasicConductionInfuser;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+
+public class ContainerBasicConductionInfuser extends Container {
+
+	private TileEntityBasicConductionInfuser basicConductionInfuser;
+	
+	public ContainerBasicConductionInfuser(InventoryPlayer inventory, TileEntityBasicConductionInfuser tileentity){
+		this.basicConductionInfuser = tileentity;
+	}
+	
+	@Override
+	public boolean canInteractWith(EntityPlayer var1) {
+		return false;
+	}
+
+}

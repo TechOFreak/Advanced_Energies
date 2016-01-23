@@ -1,0 +1,11 @@
+item.ItemEnergizedBlend.name=Energized Blend
+item.dustCoal.name=Mashed Coal
+item.ItemRadiantCrystal.name=Radiant Crystal
+item.ItemRadiantCrystalDust.name=Mashed Radiant Crystal
+item.ItemEnergizedBase.name=Energized Base
+
+tile.BlockBasicConductionInfuserIdle.name=Basic Conduction Infuser
+tile.BlockBasicConductionInfuserActive.name=Basic Conduction Infuser
+tile.BlockRadiantCrystal.name=Radiant Crystal
+
+itemGroup.tabAdvancedEnergies=Advanced Energies

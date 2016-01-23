@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.techofreak.AdvancedEnergies.handler.InfuserRecipeHandler"/>
+<fullyQualifiedTypeName name="net.minecraft.inventory.Slot"/>
+<fullyQualifiedTypeName name="net.minecraft.inventory.SlotFurnace"/>
+<fullyQualifiedTypeName name="net.minecraft.inventory.ICrafting"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.relauncher.Side"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.relauncher.SideOnly"/>
+<fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
+<fullyQualifiedTypeName name="org.lwjgl.opengl.GL11"/>
+<fullyQualifiedTypeName name="com.techofreak.AdvancedEnergies.AdvancedEnergies"/>
+</qualifiedTypeNameHistroy>

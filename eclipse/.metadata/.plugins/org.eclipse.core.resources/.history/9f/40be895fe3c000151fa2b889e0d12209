@@ -1,0 +1,11 @@
+package com.techofreak.AdvancedEnergies.handler;
+
+import java.util.ArrayList;
+
+public class InfuserRecipeHandler {
+
+	private ArrayList<String> infuserRecipes = new ArrayList<String>(); 
+	
+	
+	
+}

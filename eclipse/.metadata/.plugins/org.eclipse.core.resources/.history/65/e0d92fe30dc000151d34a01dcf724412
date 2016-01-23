@@ -1,0 +1,22 @@
+package com.techofreak.AdvancedEnergies.gui;
+
+import com.techofreak.AdvancedEnergies.tileentity.TileEntityBasicConductionInfuser;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+
+public class GuiBasicConductionInfuser extends GuiContainer{
+
+	public TileEntityBasicConductionInfuser basicConductionInfuser;
+	
+	public GuiBasicConductionInfuser(InventoryPlayer inventoryPlayer, TileEntityBasicConductionInfuser entity) {
+		super(new ContainerBasicConductionInfuser(inventoryPlayer, entity));
+	}
+
+	@Override
+	protected void drawGuiContainerBackgroundLayer(float var1, int var2, int var3) {
+		
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.techofreak.AdvancedEnergies.handler;
+
+public class ChargeProperties {
+	
+	public ChargeProperties(String displayName, int chargeAmount){
+		
+	}
+	
+}

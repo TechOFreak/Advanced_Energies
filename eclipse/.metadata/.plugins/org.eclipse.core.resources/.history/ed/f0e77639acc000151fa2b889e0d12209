@@ -1,0 +1,15 @@
+package com.techofreak.AdvancedEnergies.handler;
+
+import java.util.ArrayList;
+
+import net.minecraft.item.ItemStack;
+
+public class ChargeHandler {
+
+	private ArrayList<String> validCharges = new ArrayList<String>();
+	
+	public boolean isValidCharge(ItemStack itemstack){
+		
+	}
+	
+}

@@ -1,13 +1,19 @@
 package com.techofreak.AdvancedEnergies;
 
 import com.techofreak.AdvancedEnergies.blocks.blockRadiantCrystal;
+import com.techofreak.AdvancedEnergies.handler.ChargeHandler;
+import com.techofreak.AdvancedEnergies.handler.GuiHandler;
+import com.techofreak.AdvancedEnergies.handler.InfuserRecipeHandler;
+import com.techofreak.AdvancedEnergies.items.ItemEnergizedBase;
 import com.techofreak.AdvancedEnergies.items.ItemEnergizedBlend;
+import com.techofreak.AdvancedEnergies.items.ItemEnergizedIron;
 import com.techofreak.AdvancedEnergies.items.ItemRadiantCrystal;
 import com.techofreak.AdvancedEnergies.items.ItemRadiantCrystalDust;
 import com.techofreak.AdvancedEnergies.items.dustCoal;
-import com.techofreak.AdvancedEnergies.machines.blockBasicConductionInfuser;
+import com.techofreak.AdvancedEnergies.machines.BasicConductionInfuser;
 import com.techofreak.AdvancedEnergies.oregen.OreGeneration;
 import com.techofreak.AdvancedEnergies.proxy.CommonProxy;
+import com.techofreak.AdvancedEnergies.tileentity.TileEntityBasicConductionInfuser;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -20,10 +26,12 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME,version = Reference.VERSION)
@@ -35,11 +43,16 @@ public class AdvancedEnergies {
     
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
+    
+    @Instance(Reference.MOD_ID)
+    public static AdvancedEnergies instance;
 	
     //Items with no functionality
     public static Item itemEnergizedBlend;
     public static Item itemRadiantCrystal;
     public static Item itemRadiantCrystalDust;
+    public static Item itemEnergizedBase;
+    public static Item itemEnergizedIron;
     public static Item dustCoal;
     
     //Ore blocks
@@ -48,6 +61,13 @@ public class AdvancedEnergies {
     //Machine Blocks
     public static Block blockBasicConductionInfuserIdle;
     public static Block blockBasicConductionInfuserActive;
+    
+    //GUI IDs
+    public static final int guiIDBasicConductionInfuser = 0;
+    
+    //Initialize handlers
+    public static ChargeHandler chargehandler;
+    public static InfuserRecipeHandler infuserRecipeHandler;
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -63,6 +83,9 @@ public class AdvancedEnergies {
     public void init(FMLInitializationEvent event)
     {
     	addRecipes();
+    	registerTileEntities();
+    	NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+    	activateHandlers();
     }
     
     @EventHandler
@@ -82,6 +105,12 @@ public class AdvancedEnergies {
     	itemRadiantCrystalDust = new ItemRadiantCrystalDust().setUnlocalizedName("ItemRadiantCrystalDust").setTextureName("ae:itemRadiantCrystalDust").setCreativeTab(tabAdvancedEnergies);
     	GameRegistry.registerItem(itemRadiantCrystalDust, itemRadiantCrystalDust.getUnlocalizedName().substring(5));
     	
+    	itemEnergizedBase = new ItemEnergizedBase().setUnlocalizedName("ItemEnergizedBase").setTextureName("ae:itemEnergizedBase").setCreativeTab(tabAdvancedEnergies);
+    	GameRegistry.registerItem(itemEnergizedBase, itemEnergizedBase.getUnlocalizedName().substring(5));
+    	
+    	itemEnergizedIron = new ItemEnergizedIron().setUnlocalizedName("ItemEnergizedIron").setTextureName("ae:itemEnergizedIron").setCreativeTab(tabAdvancedEnergies);
+    	GameRegistry.registerItem(itemEnergizedIron, itemEnergizedIron.getUnlocalizedName().substring(5));
+    	
     	dustCoal = new dustCoal().setUnlocalizedName("dustCoal").setTextureName("ae:dustCoal").setCreativeTab(tabAdvancedEnergies);
     	GameRegistry.registerItem(dustCoal, dustCoal.getUnlocalizedName().substring(5));
     	
@@ -93,10 +122,10 @@ public class AdvancedEnergies {
     }
     
     public static void registerMachineBlocks(){
-    	blockBasicConductionInfuserIdle = new blockBasicConductionInfuser(false).setBlockName("BlockBasicConductionInfuserIdle").setBlockTextureName("ae:blockBasicConductionInfuserIdle").setCreativeTab(tabAdvancedEnergies);
+    	blockBasicConductionInfuserIdle = new BasicConductionInfuser(false).setBlockName("BlockBasicConductionInfuserIdle").setBlockTextureName("ae:blockBasicConductionInfuserIdle").setCreativeTab(tabAdvancedEnergies);
     	GameRegistry.registerBlock(blockBasicConductionInfuserIdle, blockBasicConductionInfuserIdle.getUnlocalizedName().substring(5));
     	
-    	blockBasicConductionInfuserActive = new blockBasicConductionInfuser(true).setBlockName("BlockBasicConductionInfuserActive").setBlockTextureName("ae:blockBasicConductionInfuserActive");
+    	blockBasicConductionInfuserActive = new BasicConductionInfuser(true).setBlockName("BlockBasicConductionInfuserActive").setBlockTextureName("ae:blockBasicConductionInfuserActive");
     	GameRegistry.registerBlock(blockBasicConductionInfuserActive, blockBasicConductionInfuserActive.getUnlocalizedName().substring(5));
     }
     
@@ -110,6 +139,15 @@ public class AdvancedEnergies {
     
     public static void addRecipes(){
     	GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(itemEnergizedBlend,4), true, new Object[]{"AB ","CC ","   ", 'A', itemRadiantCrystalDust, 'B', Items.redstone, 'C', "dustCoal"}));
+    }
+    
+    public static void registerTileEntities(){
+    	GameRegistry.registerTileEntity(TileEntityBasicConductionInfuser.class, "BasicConductionInfuser");
+    }
+    
+    public static void activateHandlers(){
+    	chargehandler = new ChargeHandler();
+    	infuserRecipeHandler = new InfuserRecipeHandler();
     }
     
     public static CreativeTabs tabAdvancedEnergies = new CreativeTabs("tabAdvancedEnergies"){

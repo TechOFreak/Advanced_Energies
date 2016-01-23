@@ -1,0 +1,12 @@
+package com.techofreak.AdvancedEnergies.handler;
+
+public class InfuserRecipeProperties {
+
+	private String object1;
+	private String object2;
+	
+	public InfuserRecipeProperties(String object1, String object2){
+		this.object1 = object1;
+		this.object2 = object2;
+	}
+}

@@ -1,0 +1,37 @@
+package com.techofreak.AdvancedEnergies.handler;
+
+import java.util.ArrayList;
+
+import com.techofreak.AdvancedEnergies.AdvancedEnergies;
+
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+
+public class InfuserRecipeHandler {
+
+	private ArrayList<InfuserRecipeProperties> infuserRecipes = new ArrayList<InfuserRecipeProperties>(); 
+	
+	public InfuserRecipeHandler(){
+		registerInfuserRecipes();
+	}
+
+	public boolean isValidInfuserRecipe(String displayName1, String displayName2){
+		for(InfuserRecipeProperties entry:infuserRecipes){
+			if(displayName1.equals(entry.getObject1()) || displayName1.equals(entry.getObject2())){
+				if(displayName2.equals(entry.getObject1()) || displayName2.equals(entry.getObject2())){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	private void registerInfuserRecipes() {
+		infuserRecipes.add(new InfuserRecipeProperties(new ItemStack(Items.gold_ingot).getDisplayName(), new ItemStack(AdvancedEnergies.itemEnergizedBase).getDisplayName(), new ItemStack(AdvancedEnergies.itemEnergizedIron)));
+	}
+	
+	public void addNewInfuserRecipe(String displayName1, String displayName2, ItemStack result){
+		infuserRecipes.add(new InfuserRecipeProperties(displayName1, displayName2, result));
+	}
+	
+}
