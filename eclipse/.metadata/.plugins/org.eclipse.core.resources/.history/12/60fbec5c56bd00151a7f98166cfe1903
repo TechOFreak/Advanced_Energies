@@ -1,7 +1,0 @@
-package com.techofreak.AdvancedEnergies;
-
-import net.minecraft.init.Items;
-
-public class dustCoal extends Items{
-
-}

@@ -14,6 +14,7 @@ import com.techofreak.AdvancedEnergies.machines.BasicConductionInfuser;
 import com.techofreak.AdvancedEnergies.oregen.OreGeneration;
 import com.techofreak.AdvancedEnergies.proxy.CommonProxy;
 import com.techofreak.AdvancedEnergies.tileentity.TileEntityBasicConductionInfuser;
+import com.techofreak.AdvancedEnergies.values.BasicConductionInfuserValues;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -69,6 +70,9 @@ public class AdvancedEnergies {
     public static ChargeHandler chargehandler;
     public static InfuserRecipeHandler infuserRecipeHandler;
     
+    //Global Variables
+    public static double cachedDisplayLevel = 0.0;
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -83,6 +87,7 @@ public class AdvancedEnergies {
     public void init(FMLInitializationEvent event)
     {
     	addRecipes();
+    	//activateValueClasses();
     	registerTileEntities();
     	NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     	activateHandlers();

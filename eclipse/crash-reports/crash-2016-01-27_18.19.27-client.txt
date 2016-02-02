@@ -1,0 +1,102 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 1/27/16 6:19 PM
+Description: Rendering screen
+
+java.lang.ArithmeticException: / by zero
+	at com.techofreak.AdvancedEnergies.gui.GuiBasicConductionInfuser.drawGuiContainerBackgroundLayer(GuiBasicConductionInfuser.java:61)
+	at net.minecraft.client.gui.inventory.GuiContainer.drawScreen(GuiContainer.java:93)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1137)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at com.techofreak.AdvancedEnergies.gui.GuiBasicConductionInfuser.drawGuiContainerBackgroundLayer(GuiBasicConductionInfuser.java:61)
+	at net.minecraft.client.gui.inventory.GuiContainer.drawScreen(GuiContainer.java:93)
+
+-- Screen render details --
+Details:
+	Screen name: com.techofreak.AdvancedEnergies.gui.GuiBasicConductionInfuser
+	Mouse location: Scaled: (228, 127). Absolute: (683, 384)
+	Screen size: Scaled: (456, 256). Absolute: (1366, 768). Scale factor of 3
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityClientPlayerMP['Player972'/682, l='MpServer', x=1.85, y=69.62, z=226.65]]
+	Chunk stats: MultiplayerChunkCache: 34, 34
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (0,64,252), Chunk: (at 0,4,12 in 0,15; contains blocks 0,0,240 to 15,255,255), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 143535 game time, 166449 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 28 total; [EntityZombie['Zombie'/705, l='MpServer', x=3.53, y=69.00, z=214.51], EntityHorse['Horse'/513, l='MpServer', x=22.16, y=71.00, z=194.63], EntityZombie['Zombie'/706, l='MpServer', x=2.50, y=69.00, z=214.50], EntitySpider['Spider'/514, l='MpServer', x=28.50, y=71.00, z=199.50], EntityZombie['Zombie'/515, l='MpServer', x=28.22, y=71.00, z=212.22], EntitySlime['Slime'/516, l='MpServer', x=29.69, y=13.33, z=235.69], EntitySheep['Sheep'/517, l='MpServer', x=28.59, y=68.00, z=255.13], EntityZombie['Zombie'/709, l='MpServer', x=5.25, y=67.07, z=204.78], EntityHorse['Horse'/518, l='MpServer', x=26.66, y=64.00, z=280.06], EntityBat['Bat'/775, l='MpServer', x=32.51, y=20.84, z=228.91], EntityZombie['Zombie'/458, l='MpServer', x=-27.50, y=45.00, z=239.50], EntityHorse['Horse'/459, l='MpServer', x=-22.72, y=65.00, z=254.72], EntityBat['Bat'/907, l='MpServer', x=21.47, y=19.48, z=196.39], EntitySkeleton['Skeleton'/461, l='MpServer', x=-18.47, y=27.00, z=256.31], EntityHorse['Horse'/462, l='MpServer', x=-26.56, y=63.00, z=257.88], EntityHorse['Horse'/463, l='MpServer', x=-22.00, y=63.00, z=261.00], EntityHorse['Horse'/539, l='MpServer', x=47.88, y=68.21, z=193.63], EntityBat['Bat'/1053, l='MpServer', x=45.30, y=28.27, z=192.98], EntityCreeper['Creeper'/487, l='MpServer', x=-8.63, y=73.00, z=282.94], EntitySkeleton['Skeleton'/1128, l='MpServer', x=47.50, y=70.00, z=212.94], EntitySkeleton['Skeleton'/1129, l='MpServer', x=45.50, y=71.00, z=207.50], EntityClientPlayerMP['Player972'/682, l='MpServer', x=1.85, y=69.62, z=226.65], EntityBat['Bat'/1071, l='MpServer', x=31.05, y=20.04, z=295.60], EntityZombie['Zombie'/700, l='MpServer', x=-33.50, y=64.00, z=231.50], EntityBat['Bat'/764, l='MpServer', x=-21.50, y=23.10, z=209.84], EntityZombie['Zombie'/445, l='MpServer', x=-41.50, y=43.44, z=301.50], EntityZombie['Zombie'/702, l='MpServer', x=-30.50, y=64.00, z=230.50], EntityBat['Bat'/446, l='MpServer', x=-47.59, y=37.70, z=288.58]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:415)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2555)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:973)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 8.1 (amd64) version 6.3
+	Java Version: 1.8.0_51, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 825320448 bytes (787 MB) / 1038876672 bytes (990 MB) up to 1038876672 bytes (990 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 13, tallocated: 95
+	FML: MCP v9.05 FML v7.10.85.1291 Minecraft Forge 10.13.2.1291 7 mods loaded, 7 mods active
+	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available->Available->Available->Available->Available->Available
+	FML{7.10.85.1291} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available->Available->Available->Available->Available->Available
+	Forge{10.13.2.1291} [Minecraft Forge] (forgeSrc-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available->Available->Available->Available->Available->Available
+	CodeChickenCore{1.0.4.29} [CodeChicken Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available->Available->Available->Available->Available->Available
+	NotEnoughItems{1.0.3.74} [Not Enough Items] (NotEnoughItems-1.7.10-1.0.3.74-dev.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available->Available->Available->Available->Available->Available
+	ae{1.7.001} [Advanced Energies] (bin) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available->Available->Available->Available->Available->Available
+	IC2{2.2.811-experimental} [IndustrialCraft 2] (industrialcraft-2-2.2.811-experimental.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available->Available->Available->Available->Available->Available
+	Launched Version: 1.7.10
+	LWJGL: 2.9.1
+	OpenGL: Intel(R) HD Graphics 4400 GL version 4.3.0 - Build 10.18.15.4248, Intel
+	GL Caps: Using GL 1.3 multitexturing.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Anisotropic filtering is supported and maximum anisotropy is 16.
+Shaders are available because OpenGL 2.1 is supported.
+
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Anisotropic Filtering: Off (1)

@@ -4,22 +4,22 @@ import net.minecraft.item.ItemStack;
 
 public class InfuserRecipeProperties {
 
-	private String object1;
-	private String object2;
+	private String ingot;
+	private String base;
 	private ItemStack result;
 	
-	public InfuserRecipeProperties(String object1, String object2, ItemStack result){
-		this.object1 = object1;
-		this.object2 = object2;
+	public InfuserRecipeProperties(String ingot, String base, ItemStack result){
+		this.ingot = ingot;
+		this.base = base;
 		this.result = result;
 	}
 	
-	public String getObject1(){
-		return object1;
+	public String getIngot(){
+		return ingot;
 	}
 	
-	public String getObject2(){
-		return object2;
+	public String getBase(){
+		return base;
 	}
 	
 	public ItemStack getResult(){

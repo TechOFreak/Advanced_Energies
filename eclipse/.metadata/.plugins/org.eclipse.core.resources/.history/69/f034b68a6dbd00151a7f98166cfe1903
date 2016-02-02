@@ -1,7 +1,0 @@
-package com.techofreak.AdvancedEnergies;
-
-import com.jcraft.jorbis.Block;
-
-public class blockRadiantCrystal extends Block {
-
-}
